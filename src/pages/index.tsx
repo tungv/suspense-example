@@ -1,4 +1,12 @@
-import { PropsWithChildren, Suspense, useEffect, useReducer } from "react";
+import {
+  Children,
+  Fragment,
+  PropsWithChildren,
+  ReactNode,
+  Suspense,
+  useEffect,
+  useReducer,
+} from "react";
 import DataHunger from "../components/DataHungry";
 
 export default function HomePage() {
@@ -39,7 +47,7 @@ function HomePageContent() {
               </DataHunger>
             </li>
             <li>
-              <DataHunger suspense duration="5s" tag="nav_about">
+              <DataHunger suspense duration="1s" tag="nav_about">
                 About
               </DataHunger>
             </li>
@@ -74,8 +82,8 @@ function HomePageContent() {
               </li>
             </ul>
           </aside>
-          <Suspense fallback={<PostsSkeleton />}>
-            <main className="flex-1 flex flex-col gap-2 px-2">
+          <main className="flex-1 flex flex-col gap-2 px-2">
+            <SuspenseList fallback={<Skeleton />}>
               <DataHunger suspense duration="6s" tag="post 1">
                 <Post title="post 1">
                   Lorem ipsum dolor, sit amet consectetur adipisicing elit.
@@ -160,8 +168,8 @@ function HomePageContent() {
                   quisquam voluptatem ratione earum architecto nulla minus?
                 </Post>
               </DataHunger>
-            </main>
-          </Suspense>
+            </SuspenseList>
+          </main>
         </div>
       </Suspense>
     </div>
@@ -204,4 +212,24 @@ function BelowNavigationSkeleton() {
       </main>
     </div>
   );
+}
+
+function SuspenseList(props: PropsWithChildren<{ fallback: ReactNode }>) {
+  const array = Children.toArray(props.children);
+  const [head, ...tail] = [...array].reverse();
+
+  const element = tail.reduce((acc, child, index) => {
+    const nFallback = index + 2;
+    const stackedFallback = [...Array(nFallback)].map((_, i) => (
+      <Fragment key={i}>{props.fallback}</Fragment>
+    ));
+    return (
+      <Suspense fallback={stackedFallback}>
+        {child}
+        {acc}
+      </Suspense>
+    );
+  }, <Suspense fallback={props.fallback}>{head}</Suspense>);
+
+  return <>{element}</>;
 }
