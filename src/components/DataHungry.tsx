@@ -1,0 +1,20 @@
+import { PropsWithChildren } from "react";
+import useSWR from "swr";
+import Spinner from "./Spinner";
+
+interface DataHungerProps {
+  duration: string;
+}
+
+export default function DataHunger(props: PropsWithChildren<DataHungerProps>) {
+  const { data } = useSWR(`/api/data/${props.duration}`, (url) => fetch(url));
+  if (!data) {
+    return (
+      <div className="flex flex-row items-center gap-1">
+        <span className="text-slate-600">Loading…</span>
+        <Spinner />
+      </div>
+    );
+  }
+  return <div>{props.children}</div>;
+}

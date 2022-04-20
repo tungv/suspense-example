@@ -1,4 +1,5 @@
 import { PropsWithChildren } from "react";
+import DataHunger from "../components/DataHungry";
 
 export default function HomePage() {
   return (
@@ -15,13 +16,13 @@ function HomePageContent() {
         <nav>
           <ul className="flex flex-row items-center gap-4">
             <li>
-              <div>Home</div>
+              <DataHunger duration="2s">Home</DataHunger>
             </li>
             <li>
-              <div>About</div>
+              <DataHunger duration="5s">About</DataHunger>
             </li>
             <li>
-              <div>Contact</div>
+              <DataHunger duration="1s">Contact</DataHunger>
             </li>
           </ul>
         </nav>
@@ -32,19 +33,19 @@ function HomePageContent() {
           <h3>Menu</h3>
           <ul>
             <li>
-              <div>Accounts</div>
+              <DataHunger duration="0.5s">Accounts</DataHunger>
             </li>
             <li>
-              <div>Orders</div>
+              <DataHunger duration="2.1s">Orders</DataHunger>
             </li>
             <li>
-              <div>Products</div>
+              <DataHunger duration="0.1s">Products</DataHunger>
             </li>
           </ul>
         </aside>
 
         <main className="flex-1 flex flex-col gap-2 px-2">
-          <div>
+          <DataHunger duration="4s">
             <Post title="post 1">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum at
               facilis dolorum sunt harum veniam eos, cum laudantium ab quisquam
@@ -63,8 +64,8 @@ function HomePageContent() {
               deserunt. Odit, repellat expedita, molestiae asperiores distinctio
               non ipsa quisquam voluptatem ratione earum architecto nulla minus?
             </Post>
-          </div>
-          <div>
+          </DataHunger>
+          <DataHunger duration="1s">
             <Post title="post 2">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum at
               facilis dolorum sunt harum veniam eos, cum laudantium ab quisquam
@@ -83,8 +84,8 @@ function HomePageContent() {
               deserunt. Odit, repellat expedita, molestiae asperiores distinctio
               non ipsa quisquam voluptatem ratione earum architecto nulla minus?
             </Post>
-          </div>
-          <div>
+          </DataHunger>
+          <DataHunger duration="3s">
             <Post title="post 3">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum at
               facilis dolorum sunt harum veniam eos, cum laudantium ab quisquam
@@ -103,8 +104,8 @@ function HomePageContent() {
               deserunt. Odit, repellat expedita, molestiae asperiores distinctio
               non ipsa quisquam voluptatem ratione earum architecto nulla minus?
             </Post>
-          </div>
-          <div>
+          </DataHunger>
+          <DataHunger duration="2.4s">
             <Post title="post 4">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum at
               facilis dolorum sunt harum veniam eos, cum laudantium ab quisquam
@@ -123,7 +124,7 @@ function HomePageContent() {
               deserunt. Odit, repellat expedita, molestiae asperiores distinctio
               non ipsa quisquam voluptatem ratione earum architecto nulla minus?
             </Post>
-          </div>
+          </DataHunger>
         </main>
       </div>
     </div>
