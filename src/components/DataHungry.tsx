@@ -4,10 +4,13 @@ import Spinner from "./Spinner";
 
 interface DataHungerProps {
   duration: string;
+  suspense?: boolean;
 }
 
 export default function DataHunger(props: PropsWithChildren<DataHungerProps>) {
-  const { data } = useSWR(`/api/data/${props.duration}`, (url) => fetch(url));
+  const { data } = useSWR(`/api/data/${props.duration}`, (url) => fetch(url), {
+    suspense: props.suspense,
+  });
   if (!data) {
     return (
       <div className="flex flex-row items-center gap-1">
