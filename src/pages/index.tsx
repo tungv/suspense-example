@@ -34,17 +34,17 @@ function HomePageContent() {
         <nav>
           <ul className="flex flex-row items-center gap-4">
             <li>
-              <DataHunger suspense duration="2s">
+              <DataHunger suspense duration="2s" tag="nav_home">
                 Home
               </DataHunger>
             </li>
             <li>
-              <DataHunger suspense duration="5s">
+              <DataHunger suspense duration="5s" tag="nav_about">
                 About
               </DataHunger>
             </li>
             <li>
-              <DataHunger suspense duration="1s">
+              <DataHunger suspense duration="1s" tag="nav_contact">
                 Contact
               </DataHunger>
             </li>
@@ -58,17 +58,17 @@ function HomePageContent() {
             <h3>Menu</h3>
             <ul>
               <li>
-                <DataHunger suspense duration="0.5s">
+                <DataHunger suspense duration="0.5s" tag="menu_accounts">
                   Accounts
                 </DataHunger>
               </li>
               <li>
-                <DataHunger suspense duration="2.1s">
+                <DataHunger suspense duration="2.1s" tag="menu_orders">
                   Orders
                 </DataHunger>
               </li>
               <li>
-                <DataHunger suspense duration="0.1s">
+                <DataHunger suspense duration="0.1s" tag="menu_products">
                   Products
                 </DataHunger>
               </li>
@@ -76,7 +76,7 @@ function HomePageContent() {
           </aside>
           <Suspense fallback={<PostsSkeleton />}>
             <main className="flex-1 flex flex-col gap-2 px-2">
-              <DataHunger suspense duration="6s">
+              <DataHunger suspense duration="6s" tag="post 1">
                 <Post title="post 1">
                   Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                   Illum at facilis dolorum sunt harum veniam eos, cum laudantium
@@ -97,7 +97,7 @@ function HomePageContent() {
                   quisquam voluptatem ratione earum architecto nulla minus?
                 </Post>
               </DataHunger>
-              <DataHunger suspense duration="1s">
+              <DataHunger suspense duration="1s" tag="post 2">
                 <Post title="post 2">
                   Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                   Illum at facilis dolorum sunt harum veniam eos, cum laudantium
@@ -118,7 +118,7 @@ function HomePageContent() {
                   quisquam voluptatem ratione earum architecto nulla minus?
                 </Post>
               </DataHunger>
-              <DataHunger suspense duration="8s">
+              <DataHunger suspense duration="8s" tag="post 3">
                 <Post title="post 3">
                   Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                   Illum at facilis dolorum sunt harum veniam eos, cum laudantium
@@ -139,7 +139,7 @@ function HomePageContent() {
                   quisquam voluptatem ratione earum architecto nulla minus?
                 </Post>
               </DataHunger>
-              <DataHunger suspense duration="2.4s">
+              <DataHunger suspense duration="2.4s" tag="post 4">
                 <Post title="post 4">
                   Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                   Illum at facilis dolorum sunt harum veniam eos, cum laudantium
